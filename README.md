@@ -1,24 +1,19 @@
 # intelligencehub
 
-Express API for submitting and ranking intelligence reports.
+## Backend SQLite storage
 
-## Endpoints
+A TypeScript backend scaffold is available under `backend/` with:
 
-- `POST /api/intelligence`
-  - Body: `{ "text": "...", "contributor": "optional", "image": { "mimeType": "image/png", "data": "<base64>" } }`
-- `GET /api/intelligence?q=...&category=...&entity=keyword1,keyword2`
-- `GET /api/rankings`
+- `better-sqlite3` local database support.
+- Startup migration runner with `schema_migrations` tracking.
+- An `intelligence` table and indexes for common query paths.
+- A repository implementation for insert/list/search/ranking queries.
+- A forward-compatible migration example (`002_add_source_and_quality.sql`).
 
-All responses are JSON envelopes with:
-
-- success: `{"success": true, "data": ...}`
-- error: `{"success": false, "error": {"code":"...","message":"..."}}`
-
-## Run
+### Quick start
 
 ```bash
+cd backend
 npm install
-npm start
+npm run typecheck
 ```
-
-Set `GEMINI_API_KEY` to enable Gemini-powered analysis through `@google/genai`.
