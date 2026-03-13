@@ -1,0 +1,14 @@
+{
+  "name": "intelligencehub",
+  "version": "1.0.0",
+  "description": "Intelligence Hub API server",
+  "main": "server/index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "check": "node --check server/index.js && node --check server/services/genaiService.js && node --check server/utils/validation.js"
+  },
+  "dependencies": {
+    "@google/genai": "^0.14.0",
+    "express": "^4.19.2"
+  }
+}
